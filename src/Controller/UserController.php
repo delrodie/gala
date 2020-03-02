@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
- * @Route("/user")
+ * @Route("/admin/user")
  */
 class UserController extends AbstractController
 {
@@ -70,7 +70,7 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setPassword($passwordEncoder->encodePassword($user, $user->getPassword()));
-            if ($user->getUsername() === 'delrodie') $user->setRoles(['ROLE_SUPER_ADMIN']);
+            if ($user->getUsername() === 'delrodie') $user->setRoles(['ROLE_USER','ROLE_SUPER_ADMIN']);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_index');

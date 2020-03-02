@@ -1,0 +1,78 @@
+@media (max-width: 1024px){
+    .banner-title{
+        font-size: 1.7rem;
+        color: #F6A81C;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .bienvenue h2{
+        margin: 60px auto 35px auto;
+        text-align: center;
+        color: #f6a81c;
+        font-weight: bold;
+        font-size: 28px;
+    }
+}
+@media (min-width: 768px){
+    .banner-title{
+        font-size: 1.7rem;
+        color: #F6A81C;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .bienvenue h2{
+        margin: 60px auto 35px auto;
+        text-align: center;
+        color: #f6a81c;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .profile img{
+        margin-bottom: 50px;
+    }
+}
+@media (max-width: 480px){
+    .navbar img.logo-rotary{
+        width: 200px;
+    }
+    .navbar img.logo-district{
+        width: 150px;
+    }
+    .banner-title{
+        font-size: 1.7rem;
+        color: #F6A81C;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .bienvenue h2{
+        margin: 60px auto 35px auto;
+        text-align: center;
+        color: #f6a81c;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .formulaire h4{
+        font-size: 13px;
+    }
+
+    .inscription .form-group{
+        margin-top: auto;
+    }
+
+    .formulaire .info{
+        font-size: 1.0em;
+        margin-top: 10px;
+        color: rebeccapurple;
+        padding-bottom: 50px;
+    }
+
+    .profile img{
+        margin-bottom: 50px;
+    }
+}

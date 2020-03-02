@@ -1,0 +1,65 @@
+.banner-title{
+    font-size: 2.5rem;
+    color: #F6A81C;
+    font-weight: bold;
+}
+
+.bienvenue{
+    border-bottom: solid 2px #F6A81C;
+    margin-bottom: 25px;
+}
+
+.bienvenue h2{
+    margin: 60px auto 35px auto;
+    text-align: center;
+    color: #f6a81c;
+    font-weight: bold;
+}
+
+.formulaire{
+    margin-bottom: 25px;
+}
+
+.formulaire h4{
+    text-align: center;
+    margin: 20px auto;
+    color: #16478E;
+}
+
+.formulaire .info{
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: rebeccapurple;
+}
+
+.inscription .form-group{
+    margin-top: 25px;
+}
+
+.profile .title{
+    color: #16478E;
+    font-weight: bold;
+    font-size: 22px;
+}
+.profile .title .separator{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.profile h5{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.profile .card{
+    margin-bottom: 100px;
+}
+.profile p{
+    font-style: italic;
+    color: rebeccapurple;
+}
+
+.profile .list-group{
+    margin-top: 50px;
+}
+

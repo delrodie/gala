@@ -3,9 +3,132 @@
 {% block title %}Page d'accueil{% endblock %}
 
 {% block body %}
-        <div class="jumbotron jumbotron-fluid text-center">
-            <div class="container">
-                <h1>Accueil</h1>
+    <section class="bienvenue">
+        <div class="container">
+            <h2>
+                Bienvenue sur l'interface d'inscription en ligne <br>
+                du Gala du Gouverneur Christophe KOREKI du 11 Juillet 2020
+            </h2>
+        </div>
+    </section>
+    <section class="formulaire">
+        <div class="container">
+            <h4>Veuillez remplir les champs</h4>
+            <div class="row" style="background-color:#f9f9f9;">
+                <div class="col-md-10 col-sm-12 offset-md-1   ">
+                    <form action="" class="inscription">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="row form-group">
+                                    <label for="nom" class=" col-md-2 col-form-label">Nom</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="row form-group">
+                                    <label for="prenoms" class="col-md-2 col-form-label">Prenoms</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="row form-group">
+                                    <label for="club" class="col-md-2 col-form-label">Club</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="row form-group">
+                                    <label for="Ville" class="col-md-2 col-form-label">Ville</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="row form-group">
+                                    <label for="Tel" class="col-md-2 col-form-label">Telepone</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="row form-group">
+                                    <label for="email" class="col-md-2 col-form-label">Email</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="row form-group">
+                                    <label for="Montant" class="col-md-2 col-form-label">Montant</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="row form-group">
+                                    <label for="nombre" class="col-md-4 col-form-label">Nombre de ticket</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="row form-group">
+                                    <label for="total" class="col-md-4 col-form-label">Montant total</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="row form-group">
+                                    <legend for="total" class="col-md-5 col-form-label">Mode de paiement</legend>
+                                    <div class="col-md-7">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="paiement1" value="option1" checked>
+                                            <label class="form-check-label" for="paiement1">
+                                                Orange Money
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="paiement2" value="option1" checked>
+                                            <label class="form-check-label" for="paiement2">
+                                                MTN
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="paiement3" value="option1" checked>
+                                            <label class="form-check-label" for="paiement3">
+                                                Flooz
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center mt-5">
+                                <button class="btn btn-primary">Valider</button>
+                                <div class="info">
+                                    Cliquer sur "Valider" pour confirmer votre paiement. <br>
+                                    Un pictogramme vous sera envoyé via
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+
+    </section>
 {% endblock %}
