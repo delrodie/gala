@@ -1,0 +1,12 @@
+form:
+  btnSave: Sauvegarder
+  btnCancel: Annuler
+  btnUpdate: Modifier
+  btnDelete: Supprimer
+  titleFormSaved: Enregistrement
+  titleFormUpdated: Modification
+  titleTable: Liste
+
+club:
+  labelName: Nom
+  placeholderName: Nom du club

@@ -1,0 +1,67 @@
+{% extends 'backend.html.twig' %}
+
+{% block title %}{{parent()}} Gestion des clubs{% endblock %}
+
+{% block body %}
+    <div class="jumbotron jumbotron-fluid text-left">
+        <div class="container">
+            <h1>Gestion des clubs</h1>
+        </div>
+    </div>
+
+    <div class="container gestion">
+        <div class="row">
+            <div class="col-8">
+                <h4>{{'form.titleTable'|trans}}</h4>
+                <table id="clubs" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Id</th>
+                        <th class="text-center">Noms</th>
+                        <th class="text-center">Participants</th>
+                        <th class="text-center">actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for club in clubs %}
+                        <tr>
+                            <td>{{ club.id }}</td>
+                            <td>{{ club.nom }}</td>
+                            <td>{{ club.nbParticipant }}</td>
+                            <td class="text-center">
+                                <a href="{{ path('club_show', {'id': club.id}) }}"><i class="fa fa-eye"></i></a> |
+                                <a href="{{ path('club_edit', {'id': club.id}) }}"><i class="fa fa-edit"></i></a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">Aucun enregistrement</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4">
+                <h4>{{'form.titleFormUpdated'|trans}}</h4>
+                {{ include('club/_form.html.twig', {'button_label': 'form.btnUpdate'|trans}) }}
+                {{ include('club/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#clubs').DataTable();
+        } );
+    </script>
+{% endblock %}

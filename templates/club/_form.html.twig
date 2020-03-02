@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+    <div class="form-group">
+        {{ form_row(form.nom) }}
+    </div>
+    {{ form_widget(form) }}
+    <div class="text-right">
+        <a href="{{ path('club_index') }}" class="btn btn-outline-secondary">{{'form.btnCancel'|trans}}</a>
+        <button class="btn btn-primary">{{ button_label|default('form.btnSave'|trans) }}</button>
+    </div>
+
+{{ form_end(form) }}

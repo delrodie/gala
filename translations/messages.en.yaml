@@ -1,0 +1,12 @@
+form:
+  btnSave: Save
+  btnCancel: Cancel
+  btnUpdate: Update
+  btnDelete: Delete
+  titleFormSaved: Create
+  titleFormUpdated: Update
+  titleTable: List
+
+club:
+  labelName: Name
+  placeholderName: Club name
