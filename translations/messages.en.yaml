@@ -7,6 +7,33 @@ form:
   titleFormUpdated: Update
   titleTable: List
 
+security:
+  pleaseSignin: Please Sign In
+  username: Username
+  password: Password
+  rememberMe: Remember me
+  btnSignIn: Sign In
+
 club:
   labelName: Name
   placeholderName: Club name
+
+
+participant:
+  labelNom: Last name
+  labelPrenoms: First name
+  labelVille: City
+  labelTelephone: Phone
+  labelEmail: Email
+  labelMontant: Amount
+  labelNombre: Number of ticket
+  labelTotal: Total amount
+  labelClub: Club
+  placeholderNom: Last name
+  placeholderPrenoms: First name
+  placeholderVille: City
+  placeholderTelephone: WhatsApp phone
+  placeholderEmail: E-mail adress
+  placeholderMontant: Basic amount
+  placeholderNombre: Number of places
+  plcaholderTotal: Total amount

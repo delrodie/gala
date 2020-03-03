@@ -8,6 +8,13 @@ form:
   titleFormUpdated: Modification
   titleTable: Liste
 
+security:
+  pleaseSignin: Veuillez vous connecter
+  username: Nom utilisateur
+  password: mot de passe
+  rememberMe: Se souvenir de moi
+  btnSignIn: Connexion
+
 club:
   labelName: Nom
   placeholderName: Nom du club
