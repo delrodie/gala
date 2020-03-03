@@ -12,9 +12,9 @@
             <div class="row">
                 <div class="col-lg-8 col-md-12">
                     <p>Attention ce code est à lecture unique. Assurez-vous qu'il ne soit pas en contact à un lecteur de code barre.</p>
-                    <img src="{{ asset('images/qr.png') }}" alt="" class="rounded mx-auto d-block">
+                    <img src="{{ asset('images/qr.png') }}" alt="" class="rounded mx-auto d-block wow bounceInDown">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-4 wow bounceInLeft">
                             <div class="card">
                                 <div class="card-header text-center">Montant</div>
                                 <div class="card-body">
@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 wow bounceInUp">
                             <div class="card">
                                 <div class="card-header text-center">Places</div>
                                 <div class="card-body">
@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 wow bounceInRight">
                             <div class="card">
                                 <div class="card-header text-center">Montant total</div>
                                 <div class="card-body">
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
-                    <div class="list-group">
+                    <div class="list-group wow fadeInLeft">
                         <a href="#" class="list-group-item list-group-item-action active">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">{{ participant.prenoms}} {{ participant.nom }}</h5>
