@@ -1,0 +1,156 @@
+{{ form_start(form,{'attr':{'class':'inscription'}}) }}
+    <div class="row">
+    <div class="col-md-6 col-sm-6">
+        <div class="row form-group">
+            <label for="nom" class=" col-md-2 col-form-label">{{ form_label(form.nom)}}</label>
+            <div class="col-md-10">
+                {{ form_widget(form.nom)}}
+                {% if form_errors(form.nom) %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form_errors(form.nom) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="row form-group">
+            <label for="prenoms" class="col-md-2 col-form-label">{{ form_label(form.prenoms)}}</label>
+            <div class="col-md-10">
+                {{ form_widget(form.prenoms)}}
+                {% if form_errors(form.prenoms) %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form_errors(form.prenoms) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="row form-group">
+            <label for="club" class="col-md-2 col-form-label">{{ form_label(form.club)}}</label>
+            <div class="col-md-10">
+                {{form_widget(form.club)}}
+                {% if form_errors(form.club) %}
+                    <div class="alert alert-danger">
+                        {{ form_errors(form.club) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="row form-group">
+            <label for="Ville" class="col-md-2 col-form-label">{{form_label(form.ville)}}</label>
+            <div class="col-md-10">
+                {{form_widget(form.ville)}}
+                {% if form_errors(form.ville) %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form_errors(form.ville) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="row form-group">
+            <label for="Tel" class="col-md-2 col-form-label">{{form_label(form.telephone)}}</label>
+            <div class="col-md-10">
+                {{form_widget(form.telephone)}}
+                {% if form_errors(form.telephone) %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form_errors(form.telephone) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="row form-group">
+            <label for="email" class="col-md-2 col-form-label">{{form_label(form.email)}}</label>
+            <div class="col-md-10">
+                {{form_widget(form.email)}}
+                {% if form_errors(form.email) %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form_errors(form.email) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="row form-group">
+            <label for="Montant" class="col-md-2 col-form-label">{{form_label(form.montant)}}</label>
+            <div class="col-md-10">
+                {{form_widget(form.montant)}}
+                {% if form_errors(form.montant) %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form_errors(form.montant) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="row form-group">
+            <label for="nombre" class="col-md-4 col-form-label">{{form_label(form.nombreTicket)}}</label>
+            <div class="col-md-8">
+                {{form_widget(form.nombreTicket)}}
+                {% if form_errors(form.nombreTicket) %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form_errors(form.nombreTicket) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="row form-group">
+            <label for="total" class="col-md-4 col-form-label">{{form_label(form.montantTotal)}}</label>
+            <div class="col-md-8">
+                {{form_widget(form.montantTotal)}}
+                {% if form_errors(form.montantTotal) %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form_errors(form.montantTotal) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="row form-group">
+            <legend for="total" class="col-md-5 col-form-label">Mode de paiement</legend>
+            <div class="col-md-7">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="paiement1" value="option1" checked>
+                    <label class="form-check-label" for="paiement1">
+                        Orange Money
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="paiement2" value="option1" checked>
+                    <label class="form-check-label" for="paiement2">
+                        MTN
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="paiement3" value="option1" checked>
+                    <label class="form-check-label" for="paiement3">
+                        Flooz
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {{ form_widget(form) }}
+<div class="row">
+    <div class="col text-center mt-5">
+        <button class="btn btn-primary">{{ button_label|default('form.btnValid'|trans) }}</button>
+        <div class="info">
+            Cliquer sur "Valider" pour confirmer votre paiement. <br>
+            Un pictogramme vous sera envoyé via
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

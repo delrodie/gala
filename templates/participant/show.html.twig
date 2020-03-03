@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Participant{% endblock %}
+
+{% block body %}
+    <h1>Participant</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ participant.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ participant.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenoms</th>
+                <td>{{ participant.prenoms }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ participant.ville }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ participant.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ participant.email }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ participant.montant }}</td>
+            </tr>
+            <tr>
+                <th>NombreTicket</th>
+                <td>{{ participant.nombreTicket }}</td>
+            </tr>
+            <tr>
+                <th>MontantTotal</th>
+                <td>{{ participant.montantTotal }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ participant.slug }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ participant.code }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ participant.createdAt ? participant.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('participant_index') }}">back to list</a>
+
+    <a href="{{ path('participant_edit', {'id': participant.id}) }}">edit</a>
+
+    {{ include('participant/_delete_form.html.twig') }}
+{% endblock %}

@@ -19,6 +19,11 @@ class ClubRepository extends ServiceEntityRepository
         parent::__construct($registry, Club::class);
     }
 
+    public function liste()
+    {
+        return $this->createQueryBuilder('c')->orderBy('c.nom','ASC');
+    }
+
     // /**
     //  * @return Club[] Returns an array of Club objects
     //  */

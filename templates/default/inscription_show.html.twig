@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ participant.slug }}{% endblock %}
+{% block body %}
+    <section class="bienvenue">
+        <div class="container">
+            <h2>Gala du Gouverneur Christophe KOREKI du 11 Juillet 2020
+            </h2>
+        </div>
+    </section>
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <p>Attention ce code est à lecture unique. Assurez-vous qu'il ne soit pas en contact à un lecteur de code barre.</p>
+                    <img src="{{ asset('images/qr.png') }}" alt="" class="rounded mx-auto d-block">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-header text-center">Montant</div>
+                                <div class="card-body">
+                                    <div class="card-title text-center">{{participant.montant|number_format(0,'','.')}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-header text-center">Places</div>
+                                <div class="card-body">
+                                    <div class="card-title text-center">{{ participant.nombreTicket}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-header text-center">Montant total</div>
+                                <div class="card-body">
+                                    <div class="card-title text-center">{{ participant.montantTotal|number_format(0,'','.')}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action active">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ participant.prenoms}} {{ participant.nom }}</h5>
+                                <small>Identité</small>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ participant.club.nom }}</h5>
+                                <small class="text-muted">Club</small>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ participant.ville}}</h5>
+                                <small class="text-muted">Ville</small>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ participant.telephone}}</h5>
+                                <small class="text-muted">Telephone</small>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ participant.email}}</h5>
+                                <small class="text-muted">Email</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -3,6 +3,7 @@ form:
   btnCancel: Annuler
   btnUpdate: Modifier
   btnDelete: Supprimer
+  btnValid: Valider
   titleFormSaved: Enregistrement
   titleFormUpdated: Modification
   titleTable: Liste
@@ -10,3 +11,22 @@ form:
 club:
   labelName: Nom
   placeholderName: Nom du club
+
+participant:
+  labelNom: Nom
+  labelPrenoms: Prenoms
+  labelVille: Ville
+  labelTelephone: Telephone
+  labelEmail: Email
+  labelMontant: Montant
+  labelNombre: Nombre de ticket
+  labelTotal: Montant total
+  labelClub: Club
+  placeholderNom: Nom de famille
+  placeholderPrenoms: Prenoms
+  placeholderVille: Ville
+  placeholderTelephone: Telephone WhatsApp
+  placeholderEmail: Adresse Email
+  placeholderMontant: Montant de base
+  placeholderNombre: Nombre de places
+  plcaholderTotal: Montant Total
