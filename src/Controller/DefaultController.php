@@ -34,7 +34,7 @@ class DefaultController extends AbstractController
 
             $inscription->addParticipant($participant);
 
-            return $this->redirectToRoute('inscription_show',['slug'=>$participant->getSlug()]);
+            return $this->redirectToRoute('mail_send',['slug'=>$participant->getSlug()]);
         }
 
 
