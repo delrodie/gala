@@ -14,6 +14,9 @@
     <section class="formulaire">
         <div class="container">
             <h4>Veuillez remplir les champs</h4>
+            {% if not form.vars.valid %}
+                <div class="alert alert-danger">Le formulaire n'est pas valide</div>
+            {% endif %}
             {% for label, messages in app.flashes %}
                 {% for message in messages %}
                     <div class="alert alert-{{label}}" role="alert">
