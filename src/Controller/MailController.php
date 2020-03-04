@@ -18,9 +18,10 @@ class MailController extends AbstractController
      */
     public function inscription(Participant $participant, \Swift_Mailer $mailer)
     {
-        $message = (new \Swift_Message('ROTARY: GALA DU GOUVERNEUR'))
-            ->setFrom('noreply@dreammakerci.com')
+        $message = (new \Swift_Message('GALA DU GOUVERNEUR'))
+            ->setFrom(['noreply@dreammakerci.com'=>'ROTARY DISTRICT 9101'])
             ->setTo($participant->getEmail())
+            ->setBcc('delrodieamoikon@gmail.com')
             ->setBody(
                 $this->renderView(
                     'email/inscription.html.twig',['participant'=>$participant]
