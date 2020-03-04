@@ -1,3 +1,14 @@
 swiftmailer:
-    url: '%env(MAILER_URL)%'
+    transport: gmail
+    auth_mode: login
+    port: 465
+    encryption: ssl
+    host: stmp.gmail.com
+    username: dreammakercicom@gmail.com
+    password: DreamMaker225
+    #url: '%env(MAILER_URL)%'
     spool: { type: 'memory' }
+    stream_options: ssl
+    allow_self_signed: true
+    verify_peer: false
+    verify_peer_name: false
