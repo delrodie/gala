@@ -36,7 +36,7 @@ class MailController extends AbstractController
             )
             ;
         ;
-        if ($mailer->send($message))$this->addFlash('success',"Votre inscription a bien été enregistrée. Vuillez Consulter votre adresse email pour votre code!");
+        if ($mailer->send($message))$this->addFlash('success',"Votre inscription a bien été enregistrée. Veuillez Consulter votre adresse email pour votre code!");
         else $this->addFlash('danger',"Echec d'envoi de mail!");
 
         return $this->redirectToRoute('homepage');

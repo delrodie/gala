@@ -1,1 +1,4 @@
-participant {{ participant.nom }}
+Bonjour {{ participant.prenoms|title }} {{ participant.nom|upper }}
+Votre inscription au Gala du Gouverneur du 11 Juillet a bien été enregistrée.
+Copiez et collez le lien suivant: {{ absolute_url(path('inscription_show', {'slug': participant.slug})) }}
+dans le navigateur pour voir les détails de votre inscription.
