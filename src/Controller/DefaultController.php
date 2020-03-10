@@ -33,6 +33,7 @@ class DefaultController extends AbstractController
             $entityManager->flush();
 
             $inscription->addParticipant($participant);
+            $inscription->addTicket($participant);
 
             return $this->redirectToRoute('mail_send',['slug'=>$participant->getSlug()]);
         }

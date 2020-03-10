@@ -4,19 +4,22 @@
 namespace App\Utils;
 
 
+use App\Entity\Ticket;
 use App\Repository\ClubRepository;
 use App\Repository\ParticipantRepository;
+use App\Repository\TicketRepository;
 use Cocur\Slugify\Slugify;
 use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
 
 class Inscription
 {
-    public function __construct(EntityManagerInterface $entityManager, ParticipantRepository $participantRepository, ClubRepository $clubRepository)
+    public function __construct(EntityManagerInterface $entityManager, ParticipantRepository $participantRepository, ClubRepository $clubRepository, TicketRepository $ticketRepository)
     {
         $this->em = $entityManager;
         $this->participantRepository = $participantRepository;
         $this->clubRepository = $clubRepository;
+        $this->ticketRepository = $ticketRepository;
     }
 
     /**
@@ -51,7 +54,13 @@ class Inscription
         return $slug;
     }
 
-    public function addParticipant($participant)
+    /**
+     * Augmentation du nombre de participant dans le club
+     *
+     * @param $participant
+     * @return bool
+     */
+    public function addParticipant($participant) : bool
     {
         $club = $this->clubRepository->findOneBy(['id'=>$participant->getClub()]);
         $nb = $club->getNbParticipant();
@@ -60,5 +69,38 @@ class Inscription
         $this->em->flush();
 
         return true;
+    }
+
+    public function addTicket($participant)
+    {
+        $nombre = $participant->getNombreTicket();
+        $participantCode = $participant->getCode();
+        for ($i=1;$i<=$nombre; $i++)
+        {
+            $code = $this->generateCode(4);
+            $tickets = $this->ticketRepository->findAll();
+            $nbTicket = count($tickets);
+            $reference = $nbTicket.''.$code.'-'.$i.''.$participantCode;
+            $ticket = new Ticket();
+            $ticket->setReference($reference);
+            $ticket->setParticipant($participant);
+            $this->em->persist($ticket);
+            $this->em->flush();
+        }
+
+        return true;
+    }
+
+
+    /**
+     * Generation du code selon le nombre de caractère souhaité
+     * @param $nbChar
+     * @return false|string
+     */
+    protected function generateCode($nbChar)
+    {
+        //$str = 'abcdefghijklmnopqrstuvwxyzABCEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $str = 'ABCEFGHIJKLMNOPQRSTUVWXYZ';
+        return substr(str_shuffle($str),1,$nbChar);
     }
 }
