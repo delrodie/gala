@@ -6,6 +6,7 @@ use App\Entity\Participant;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
@@ -42,12 +43,16 @@ class ParticipantType extends AbstractType
                 'attr'=>['class'=>"form-control",'placeholder'=>"participant.placeholderMontant",'autocomplete'=>"off"],
                 'label'=>"participant.labelMontant"
             ])
-            ->add('nombreTicket', IntegerType::class,[
-                'attr'=>['class'=>"form-control",'placeholder'=>'participant.placeholderNombre',"autocomplete"=>"off"],
-                'label'=>"participant.labelNombre"
+            ->add('nombreTicket', ChoiceType::class,[
+                'attr'=>['class'=>"form-control select2",'placeholder'=>'participant.placeholderNombre',"autocomplete"=>"off", 'onchange'=>'montantTotal()'],
+                'label'=>"participant.labelNombre",
+                'choices'=>[
+                    '-- Selectionnez --'=>'','1'=>1,'2'=>2,'3'=>3,'4'=>4,'5'=>5,'6'=>6,'7'=>7,'8'=>8,'9'=>9,'10'=>10,'11'=>11,12=>12,13=>13,14=>14,15=>15,
+                    16=>16,17=>17,18=>18,19=>19,20=>20,21=>21,22=>22,23=>23,24=>24,25=>25,26=>26,27=>27,28=>28,29=>29,30=>30
+                ]
             ])
             ->add('montantTotal', IntegerType::class,[
-                'attr'=>['class'=>'form-control','placeholder'=>"participant.placeholderTotal",'autocomplete'=>"off"],
+                'attr'=>['class'=>'form-control','placeholder'=>"participant.placeholderTotal",'autocomplete'=>"off",'readonly'=>'readonly'],
                 'label'=>'participant.labelTotal'
             ])
             //->add('slug')
