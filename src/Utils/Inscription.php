@@ -11,6 +11,10 @@ use App\Repository\TicketRepository;
 use Cocur\Slugify\Slugify;
 use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
+use Endroid\QrCode\ErrorCorrectionLevel;
+use Endroid\QrCode\LabelAlignment;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Response\QrCodeResponse;
 
 class Inscription
 {
@@ -71,8 +75,15 @@ class Inscription
         return true;
     }
 
+    /**
+     * Enregistrement des tickets
+     *
+     * @param $participant
+     * @return bool
+     */
     public function addTicket($participant)
     {
+
         $nombre = $participant->getNombreTicket();
         $participantCode = $participant->getCode();
         for ($i=1;$i<=$nombre; $i++)
@@ -86,6 +97,33 @@ class Inscription
             $ticket->setParticipant($participant);
             $this->em->persist($ticket);
             $this->em->flush();
+
+            // Initialisation du Qr Code
+            $qrCode = new QrCode($reference);
+            $qrCode->setSize(400);
+            // Set advanced options
+            $qrCode->setWriterByName('png');
+            $qrCode->setMargin(15);
+            $qrCode->setEncoding('UTF-8');
+            $qrCode->setErrorCorrectionLevel(ErrorCorrectionLevel::HIGH());
+            $qrCode->setForegroundColor(['r' => 10, 'g' => 4, 'b' => 249, 'a' => 0]);
+            $qrCode->setBackgroundColor(['r' => 255, 'g' => 255, 'b' => 255, 'a' => 0]);
+            $qrCode->setLabel('Gala du Gouverneur - 11 juillet 2020', 13, __DIR__.'/../../public/fonts/Noto_Serif/NotoSerif-Italic.ttf', LabelAlignment::CENTER());
+            $qrCode->setLogoPath(__DIR__.'/../../public/images/icone.png');
+            $qrCode->setLogoSize(100, 100);
+            $qrCode->setRoundBlockSize(true);
+            $qrCode->setValidateResult(false);
+            $qrCode->setWriterOptions(['exclude_xml_declaration' => true]);
+
+            // Directly output the QR code
+            header('Content-Type: '.$qrCode->getContentType());
+            $qrCode->writeString();
+
+            // Save it to a file
+            $qrCode->writeFile(__DIR__.'/../../public/qrCode/'.$reference.'.png');//die('ici');
+
+            // Create a response object
+            //$response = new QrCodeResponse($qrCode);
         }
 
         return true;
