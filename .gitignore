@@ -16,8 +16,8 @@
 ###< symfony/phpunit-bridge ###
 .idea
 .idea/*
-/public/upload
-/public/qrCode
+/public/upload/
+/public/qrCode/
 
 ###> liip/imagine-bundle ###
 /public/media/cache/

@@ -99,7 +99,7 @@ class Inscription
             $this->em->flush();
 
             // Initialisation du Qr Code
-            $lien = 'https://bit.ly/3cSG9xs/'.$reference;
+            $lien = 'http://galarotary.dreammakerci.com/recherche/'.$reference;
             $qrCode = new QrCode($lien);
             $qrCode->setSize(400);
             // Set advanced options
