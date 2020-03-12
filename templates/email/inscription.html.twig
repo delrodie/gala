@@ -206,11 +206,25 @@
                                                                 <tr>
                                                                     <td align="center" colspan="4">
                                                                         <a href="{{ absolute_url(path('inscription_show', {'slug': participant.slug})) }}" target="_blank" title="Rotary"><img alt="Rotary" border="0" src="{{ absolute_url(asset('images/pictograme.png'))}}" style="display:block;" /> </a>
-                                                                        <hr>
                                                                     </td>
                                                                 </tr>
+                                                                {% if participant.tickets|length > 1 %}
+                                                                    <tr>
+                                                                        <td align="left" colspan="4"
+                                                                            style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; color: #272727;">
+                                                                            Ou accedez à la liste de vos tickets pour
+                                                                            les transmettre à vos invités
+                                                                            <br><br>
+                                                                            <a href="{{ absolute_url(path('inscription_show', {'slug': participant.slug})) }}#listeTickets"
+                                                                               class="button" target="_blank">Liste des
+                                                                                tickets</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                {% endif %}
                                                                 <tr>
-                                                                    <td align="left" style="font-family: Helvetica, Arial, sans-serif; font-size: 10px; line-height: 15px; color: #5d5d5d; margin-top: 50px" width="285"><br />
+
+                                                                    <td align="left" style="font-family: Helvetica, Arial, sans-serif; font-size: 10px; line-height: 15px; color: #5d5d5d; margin-top: 50px" width="285">
+                                                                        <hr><br />
 
                                                                         &copy; 2020 Dream Maker. Tous droits r&eacute;serv&eacute;s</td>
 

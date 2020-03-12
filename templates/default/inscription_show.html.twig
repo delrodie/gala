@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ participant.slug }}{% endblock %}
+{% block title %}Participant {{ participant.prenoms }} {{ participant.nom }}{% endblock %}
 {% block body %}
     <section class="bienvenue">
         <div class="container">
@@ -12,17 +12,12 @@
             <div class="row">
                 <div class="col-lg-8 col-md-12">
                     <p>Attention ce code est à lecture unique. Assurez-vous qu'il ne soit pas en contact à un lecteur de code barre.</p>
-                    <img src="{{ asset('images/qr.png') }}" alt="" class="rounded mx-auto d-block wow bounceInDown">
+                    {% for ticket in participant.tickets|slice(0,1) %}
+                        <img src="{{ asset('qrCode/'~ticket.reference~'.png') }}" alt="{{ participant.prenoms }} {{ participant.nom }}" class="rounded mx-auto d-block wow bounceInDown" width="300">
+                    {% endfor %}
+
                     <div class="row">
-                        <div class="col-4 wow bounceInLeft">
-                            <div class="card">
-                                <div class="card-header text-center">Montant</div>
-                                <div class="card-body">
-                                    <div class="card-title text-center">{{participant.montant|number_format(0,'','.')}}</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4 wow bounceInUp">
+                        <div class="col-6 wow bounceInLeft">
                             <div class="card">
                                 <div class="card-header text-center">Places</div>
                                 <div class="card-body">
@@ -30,7 +25,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4 wow bounceInRight">
+                        <div class="col-6 wow bounceInRight">
                             <div class="card">
                                 <div class="card-header text-center">Montant total</div>
                                 <div class="card-body">
@@ -39,6 +34,47 @@
                             </div>
                         </div>
                     </div>
+                    {% if participant.tickets|length > 1 %}
+                        <div class="row wow bounceInUp">
+                            <div class="col" id="listeTickets">
+                                <h4>Liste de vos tickets</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-bordered">
+                                        <thead>
+                                        <tr class="table-primary text-center">
+                                            <th scope="col">#</th>
+                                            <th scope="col">Code</th>
+                                            <th scope="col">Table</th>
+                                            <th scope="col">Place</th>
+                                            <th scope="col">Statut</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for ticket in participant.tickets %}
+                                            <tr class="text-center">
+                                                <th scope="row">{{ loop.index }}</th>
+                                                <td>{{ ticket.reference }}</td>
+                                                <td>{{ ticket.tabble ? ticket.tabble : '-' }}</td>
+                                                <td>{{ ticket.place ? ticket.place : '-' }}</td>
+                                                <td>{{ ticket.flag ? '<span class="badge badge-danger">Désactivé</span>' : '<span class="badge badge-success">Actif</span>' }}</td>
+                                                <td>
+                                                    {% if loop.index == 1 %}
+                                                        <i class="fa fa-whatsapp"></i> |
+                                                        <i class="fa fa-envelope"></i>
+                                                    {% else %}
+                                                        <a href="{{ path('recherche_index', {'code': ticket.reference}) }}" title="Inviter par Whatsapp"><i class="fa fa-whatsapp"></i></a> |
+                                                        <a href="#" title="Inviter par Mail"><i class="fa fa-envelope"></i></a>
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="list-group wow fadeInLeft">

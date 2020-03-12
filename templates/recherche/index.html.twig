@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RechercheController!{% endblock %}
+
+{% block body %}
+    <section class="bienvenue">
+        <div class="container">
+            <h2>Gala du Gouverneur Christophe KOREKI du 11 Juillet 2020
+            </h2>
+        </div>
+    </section>
+    <section class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <p>Attention ce code est à lecture unique. Assurez-vous qu'il ne soit pas en contact à un lecteur de code barre.</p>
+                </div>
+                <div class="col-lg-8 offset-lg-2 card shadow p-3 mb-5 bg-white rounded">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-12 identite">
+                            <h2>Dieudonné AMOIKON</h2> <br>
+                            <p><strong>Parrain</strong>: {{ ticket.participant.nom|upper}} {{ ticket.participant.prenoms }}</p>
+                            <p><strong>Club</strong>: {{ ticket.participant.club.nom }}</p>
+                            <p><strong>Ville</strong>: {{ ticket.participant.ville }}</p>
+                            <p><strong>Contact</strong>: {{ ticket.participant.telephone }}</p>
+                            <p><strong>Ticket N0</strong>: <span class="text-danger">{{ ticket.reference }}</span></p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 d-none d-sm-block">
+                            <img src="{{ asset('qrCode/'~ticket.reference~'.png') }}" alt="{{ ticket.participant.prenoms }} {{ ticket.participant.nom }}" class="rounded mx-auto d-block wow bounceInDown img-fluid" width="300">
+
+                        </div>
+                    </div>
+                    <div class="row separateur">
+                        <div class="col emphasis wow bounceInLeft">
+                            <h2 class="text-danger"><strong>{{ ticket.tabble ? ticket.tabble : 'Non defini'}}</strong></h2>
+                            <p>Table</p>
+                        </div>
+                        <div class="col emphasis wow bounceInUp">
+                            <h2 class="text-success"><strong>{{ ticket.place ? ticket.place : 'Non defini'}}</strong></h2>
+                            <p>Place</p>
+                        </div>
+                        <div class="col col-btn wow bounceInRight">
+                            <form action="#">
+                                <button class="btn btn-primary btn-lg">Valider</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

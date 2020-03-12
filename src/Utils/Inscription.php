@@ -99,7 +99,8 @@ class Inscription
             $this->em->flush();
 
             // Initialisation du Qr Code
-            $qrCode = new QrCode($reference);
+            $lien = 'https://bit.ly/3cSG9xs/'.$reference;
+            $qrCode = new QrCode($lien);
             $qrCode->setSize(400);
             // Set advanced options
             $qrCode->setWriterByName('png');

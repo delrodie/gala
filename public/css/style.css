@@ -88,3 +88,52 @@
 .copyright a{
     color: #1a1a1a;
 }
+
+/************************************
+ * RESERVATION
+ ************************************
+ */
+
+.identite{
+    display: inline-block;
+}
+.identite p{
+    font-style: normal;
+    color: black;
+    font-size: 1.2em;
+}
+.identite p strong{
+    color: rgba(41, 41, 41, 0.7);
+}
+.separateur{
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+.emphasis{
+    border-top: 4px solid transparent;
+}
+.emphasis:hover{
+    border-top: 5px solid #16478E;
+    background-color: #cccccc;
+    border-radius: 5px;
+}
+.emphasis h2{
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+    font-weight: bold;
+}
+.emphasis p{
+    font-style: normal;
+    color: #5d5d5d;
+    text-align: center;
+}
+.col-btn{
+    text-align: center;
+    margin: auto auto;
+}
+.col-btn .btn:hover{
+    background-color: #F6A81C;
+    border: #F6A81C solid 5px;
+    color: black;
+    font-weight: bold;
+}
