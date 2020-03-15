@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello WhatsappController!{% endblock %}
+
+{% block body %}
+    <form action="{{ path('whatsapp') }}" method="post">
+        <input name="phone" type="text" class="text-control">
+        <input name="body" type="text">
+        <button class="btn btn-primary">Valider</button>
+    </form>
+{% endblock %}
