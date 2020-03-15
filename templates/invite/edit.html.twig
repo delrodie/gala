@@ -1,0 +1,62 @@
+{%  extends 'base.html.twig' %}
+{% block title %} Invitation au Gala du Gouverneur{% endblock %}
+{% block body %}
+    <section class="bienvenue">
+        <div class="container">
+            <h2>
+                Bienvenue sur l'interface d'inscription en ligne <br>
+                du Gala du Gouverneur Christophe KOREKI du 11 Juillet 2020
+            </h2>
+        </div>
+    </section>
+    <section class="invitation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 float-sm-right">
+                    <div class="row wow bounceInUp">
+                        <div class="col" id="listeTickets">
+                            <h4>Liste de vos tickets</h4>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered">
+                                    <thead>
+                                    <tr class="table-primary text-center">
+                                        <th scope="col">#</th>
+                                        <th scope="col">Code</th>
+                                        <th scope="col">Invité</th>
+                                        <th scope="col">Telephone</th>
+                                        <th scope="col">Attribué</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for ticket in tickets %}
+                                        <tr class="text-center">
+                                            <th scope="row">{{ loop.index }}</th>
+                                            <td>{{ ticket.reference }}</td>
+                                            <td class="text-left">{{ ticket.invite ? ticket.invite : '-' }}</td>
+                                            <td>{{ ticket.invitePhone ? ticket.invitePhone : '-' }}</td>
+                                            <td>{{ ticket.transfert ? '<span class="badge badge-success">Oui</span>' : '<span class="badge badge-danger">Non</span>' }}</td>
+                                            <td>
+                                                {% if loop.index == 1 %}
+                                                    <a href="{{ path('invite_download', {'reference': ticket.reference}) }}"><i class="fa fa-download"></i></a>
+                                                {% elseif ticket.transfert %}
+                                                    <a href="{{ path('invite_download', {'reference': ticket.reference}) }}"><i class="fa fa-download"></i></a>
+                                                {% else %}
+                                                    <a href="{{ path('invite_edit', {'reference': ticket.reference}) }}" title="Inviter par Whatsapp"><i class="fa fa-whatsapp"></i></a>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 float-sm-left wow bounceInDown bg-light">
+                    {{ include('invite/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

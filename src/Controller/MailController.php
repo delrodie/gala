@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Participant;
 use App\Repository\TicketRepository;
+use App\Utils\Inscription;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Twilio\Rest\Client;
@@ -18,7 +19,7 @@ class MailController extends AbstractController
     /**
      * @Route("/{slug}", name="mail_send", methods={"GET"})
      */
-    public function inscription(Participant $participant, \Swift_Mailer $mailer)
+    public function inscription(Participant $participant, \Swift_Mailer $mailer, Inscription $inscription, TicketRepository $ticketRepository)
     {
 
         $message = (new \Swift_Message('GALA DU GOUVERNEUR TICKET'))
@@ -54,6 +55,10 @@ class MailController extends AbstractController
         );
         */
         //print($message->$id);
+
+        // Envoie de whatsApp
+        $ticket = $ticketRepository->findOneBy(['participant'=>$participant],['id'=>"ASC"]);
+        $inscription->confirmation($ticket);
 
         $this->addFlash('success',"Votre inscription a bien été enregistrée. Veuillez Consulter votre adresse email pour votre code!");
 

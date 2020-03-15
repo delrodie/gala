@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RechercheController!{% endblock %}
+{% block title %}Flash{% endblock %}
 
 {% block body %}
     <section class="bienvenue">
@@ -18,7 +18,8 @@
                 <div class="col-lg-8 offset-lg-2 card shadow p-3 mb-5 bg-white rounded">
                     <div class="row">
                         <div class="col-lg-8 col-md-8 col-12 identite">
-                            <h2>Dieudonné AMOIKON</h2> <br>
+                            {% set parrain = ticket.participant.prenoms ~' '~ ticket.participant.nom|upper %}
+                            <h2>{{ ticket.invite ? ticket.invite|upper : parrain }}</h2> <br>
                             <p><strong>Parrain</strong>: {{ ticket.participant.nom|upper}} {{ ticket.participant.prenoms }}</p>
                             <p><strong>Club</strong>: {{ ticket.participant.club.nom }}</p>
                             <p><strong>Ville</strong>: {{ ticket.participant.ville }}</p>

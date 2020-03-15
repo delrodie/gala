@@ -13,7 +13,10 @@
                 <div class="col-lg-8 col-md-12">
                     <p>Attention ce code est à lecture unique. Assurez-vous qu'il ne soit pas en contact à un lecteur de code barre.</p>
                     {% for ticket in participant.tickets|slice(0,1) %}
-                        <img src="{{ asset('qrCode/'~ticket.reference~'.png') }}" alt="{{ participant.prenoms }} {{ participant.nom }}" class="rounded mx-auto d-block wow bounceInDown" width="300">
+                        <a href="{{ path('invite_download', {'reference': ticket.reference}) }}" title="Telechargez votre qrCode">
+                            <img src="{{ asset('qrCode/'~ticket.reference~'.png') }}" alt="{{ participant.prenoms }} {{ participant.nom }}" class="rounded mx-auto d-block wow bounceInDown" width="300">
+                        </a>
+
                     {% endfor %}
 
                     <div class="row">
@@ -60,11 +63,11 @@
                                                 <td>{{ ticket.flag ? '<span class="badge badge-danger">Désactivé</span>' : '<span class="badge badge-success">Actif</span>' }}</td>
                                                 <td>
                                                     {% if loop.index == 1 %}
-                                                        <i class="fa fa-whatsapp"></i> |
-                                                        <i class="fa fa-envelope"></i>
+                                                        {% if ticket.transfert %}
+                                                            <a href="{{ path('invite_download', {'reference': ticket.reference}) }}" title="Telechargez votre qrCode"><i class="fa fa-download"></i></a>
+                                                        {% endif %}
                                                     {% else %}
-                                                        <a href="{{ path('recherche_index', {'code': ticket.reference}) }}" title="Inviter par Whatsapp"><i class="fa fa-whatsapp"></i></a> |
-                                                        <a href="#" title="Inviter par Mail"><i class="fa fa-envelope"></i></a>
+                                                        <a href="{{ path('invite_edit', {'reference': ticket.reference}) }}" title="Inviter par Whatsapp"><i class="fa fa-whatsapp"></i></a>
                                                     {% endif %}
                                                 </td>
                                             </tr>

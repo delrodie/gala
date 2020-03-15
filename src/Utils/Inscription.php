@@ -130,6 +130,72 @@ class Inscription
         return true;
     }
 
+    /**
+     * @param $ticket
+     * @return bool
+     */
+    public function confirmation($ticket) : bool
+    {
+        $ticket->setTransfert(1);
+        $ticket->setInvite($ticket->getParticipant()->getPrenoms().' '.$ticket->getParticipant()->getNom());
+        $ticket->setInvitePhone($ticket->getParticipant()->getTelephone());
+        $this->em->flush();
+
+        // Envoi de WhatsApp
+        $phone = $ticket->getParticipant()->getTelephone();
+        $message = "GALA DU GOUVERNEUR \n\n Votre inscription au Gala du Gouverneur du 11 juillet 2020 a bien été enregistrée.\n Veuillez cliquer sur: \n - ce lien 👉http://galarotary.dreammakerci.com/invite/".$ticket->getReference()."/telechargement\n pour telecharger votre qrCode \n - ou sur celui ci-dessous(👇) pour transmettre vos tickets à vos invités.\n\n http://galarotary.dreammakerci.com/inscription/".$ticket->getParticipant()->getSlug()."#listeTickets. \n\n LE COMITE D'ORGANISATION VOUS REMERCIE!"
+        ;
+
+        $data = [
+            'phone' => $phone,
+            'body' => $message,
+        ];
+        $json = json_encode($data);
+        $url = 'https://eu44.chat-api.com/instance107329/sendMessage?token=e1qhmfprcggkjbl7';
+        $options = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => 'Content-type: application/json',
+                'content' => $json
+            ]
+        ]);
+        file_get_contents($url, false, $options);
+
+        return true;
+    }
+
+    /**
+     * Envoie de l'invitation par whatsApp
+     * @param $ticket
+     * @return bool
+     */
+    public function invitation($ticket) : bool
+    {
+        $ticket->setTransfert(1);
+        $this->em->flush();
+
+        // Envoi de WhatsApp
+        $phone = $ticket->getInvitePhone();
+        $message = "Bonjour ".$ticket->getInvite()." \n\n ".$ticket->getParticipant()->getPrenoms().' '.$ticket->getParticipant()->getNom()."vous invite au Gala du Gouverneur du 11 Juillet 2020 organisé par le ROTARY CLUB. \n Merci de cliquer sur le lien ci-dessous pour télécharger votre ticket.\n\n👉👉 http://galarotary.dreammakerci.com/invite/".$ticket->getReference()."/telechargement  \n\n Infoline +225 00 00 00 00 ";
+
+        $data = [
+            'phone' => $phone,
+            'body' => $message,
+        ];
+        $json = json_encode($data);
+        $url = 'https://eu44.chat-api.com/instance107329/sendMessage?token=e1qhmfprcggkjbl7';
+        $options = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => 'Content-type: application/json',
+                'content' => $json
+            ]
+        ]);
+        file_get_contents($url, false, $options);
+
+        return true;
+    }
+
 
     /**
      * Generation du code selon le nombre de caractère souhaité

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ticket{% endblock %}
+
+{% block body %}
+    <h1>Ticket</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ticket.id }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ ticket.reference }}</td>
+            </tr>
+            <tr>
+                <th>Tabble</th>
+                <td>{{ ticket.tabble }}</td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td>{{ ticket.place }}</td>
+            </tr>
+            <tr>
+                <th>Flag</th>
+                <td>{{ ticket.flag ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Invite</th>
+                <td>{{ ticket.invite }}</td>
+            </tr>
+            <tr>
+                <th>InvitePhone</th>
+                <td>{{ ticket.invitePhone }}</td>
+            </tr>
+            <tr>
+                <th>InviteMail</th>
+                <td>{{ ticket.inviteMail }}</td>
+            </tr>
+            <tr>
+                <th>Transfert</th>
+                <td>{{ ticket.transfert }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('ticket_index') }}">back to list</a>
+
+    <a href="{{ path('ticket_edit', {'id': ticket.id}) }}">edit</a>
+
+    {{ include('ticket/_delete_form.html.twig') }}
+{% endblock %}

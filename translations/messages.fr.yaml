@@ -7,6 +7,7 @@ form:
   titleFormSaved: Enregistrement
   titleFormUpdated: Modification
   titleTable: Liste
+  btnSend: Envoyer
 
 security:
   pleaseSignin: Veuillez vous connecter
@@ -37,3 +38,12 @@ participant:
   placeholderMontant: Montant de base
   placeholderNombre: Nombre de places
   placeholderTotal: Montant Total
+
+invite:
+  labelInvite: Identité
+  labelReference: Le ticket
+  labelPhone: Telephone (ex:+225 99999999)
+  labelMail: Email
+  placeholderInvite: Nom et prenoms de votre invité
+  placeholderPhone: Numero WhatsApp de votre invité
+  placeholderMail: Adresse Email de votre invité

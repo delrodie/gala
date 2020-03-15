@@ -42,6 +42,26 @@ class Ticket
      */
     private $participant;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $invite;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $invitePhone;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $inviteMail;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $transfert;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +123,54 @@ class Ticket
     public function setParticipant(?Participant $participant): self
     {
         $this->participant = $participant;
+
+        return $this;
+    }
+
+    public function getInvite(): ?string
+    {
+        return $this->invite;
+    }
+
+    public function setInvite(?string $invite): self
+    {
+        $this->invite = $invite;
+
+        return $this;
+    }
+
+    public function getInvitePhone(): ?string
+    {
+        return $this->invitePhone;
+    }
+
+    public function setInvitePhone(?string $invitePhone): self
+    {
+        $this->invitePhone = $invitePhone;
+
+        return $this;
+    }
+
+    public function getInviteMail(): ?string
+    {
+        return $this->inviteMail;
+    }
+
+    public function setInviteMail(?string $inviteMail): self
+    {
+        $this->inviteMail = $inviteMail;
+
+        return $this;
+    }
+
+    public function getTransfert(): ?int
+    {
+        return $this->transfert;
+    }
+
+    public function setTransfert(?int $transfert): self
+    {
+        $this->transfert = $transfert;
 
         return $this;
     }

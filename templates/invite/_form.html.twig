@@ -1,0 +1,18 @@
+{{ form_start(form) }}
+    <div class="form-group">
+        {{ form_row(form.reference) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.invite) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.invitePhone) }}
+    </div>
+    {{ form_widget(form) }}
+    {% if ticket.invite is null %}
+        <div class="text-right">
+            <button class="btn btn-primary">{{ button_label|default('form.btnSend'|trans) }}</button>
+        </div>
+    {% endif %}
+
+{{ form_end(form) }}
