@@ -42,7 +42,7 @@ participant:
 invite:
   labelInvite: Identité
   labelReference: Le ticket
-  labelPhone: Telephone (ex:+225 99999999)
+  labelPhone: Telephone
   labelMail: Email
   placeholderInvite: Nom et prenoms de votre invité
   placeholderPhone: Numero WhatsApp de votre invité

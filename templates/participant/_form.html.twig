@@ -57,6 +57,7 @@
             <label for="Tel" class="col-md-2 col-form-label">{{form_label(form.telephone)}}</label>
             <div class="col-md-10">
                 {{form_widget(form.telephone)}}
+                <em style="font-size: 12px; color: darkred; font-weight:bold;">Votre numero WhatsApp</em>
                 {% if form_errors(form.telephone) %}
                     <div class="alert alert-danger" role="alert">
                         {{ form_errors(form.telephone) }}
