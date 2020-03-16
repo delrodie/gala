@@ -32,7 +32,7 @@ class ParticipantType extends AbstractType
                 'label'=>"participant.labelVille"
             ])
             ->add('telephone', TelType::class,[
-                'attr'=>['class'=>'form-control','placeholder'=>"participant.placeholderTelephone","autocomplete"=>"off"],
+                'attr'=>['class'=>'form-control bfh-phone','placeholder'=>"participant.placeholderTelephone","autocomplete"=>"off", 'data-format'=>"+225 dddddddd"],
                 'label'=>"participant.labelTelephone"
             ])
             ->add('email',EmailType::class,[

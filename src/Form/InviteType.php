@@ -22,7 +22,7 @@ class InviteType extends AbstractType
                 'label' => 'invite.labelInvite'
             ])
             ->add('invitePhone', TextType::class,[
-                'attr'=>['class'=>'form-control','placeholder'=>'invite.placeholderPhone','autocomplete'=>"off"],
+                'attr'=>['class'=>'form-control bfh-phone','placeholder'=>'invite.placeholderPhone','autocomplete'=>"off", 'data-format'=>"+225 dddddddd"],
                 'label' => 'invite.labelPhone',
                 'required' => true
             ])

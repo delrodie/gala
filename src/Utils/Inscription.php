@@ -176,7 +176,7 @@ class Inscription
 
         // Envoi de WhatsApp
         $phone = $ticket->getInvitePhone();
-        $message = "Bonjour ".$ticket->getInvite()." \n\n ".$ticket->getParticipant()->getPrenoms().' '.$ticket->getParticipant()->getNom()."vous invite au Gala du Gouverneur du 11 Juillet 2020 organisé par le ROTARY CLUB. \n Merci de cliquer sur le lien ci-dessous pour télécharger votre ticket.\n\n👉👉 http://galarotary.dreammakerci.com/invite/".$ticket->getReference()."/telechargement  \n\n Infoline +225 00 00 00 00 ";
+        $message = "Bonjour ".$ticket->getInvite()." \n\n ".$ticket->getParticipant()->getPrenoms().' '.$ticket->getParticipant()->getNom()." vous invite au Gala du Gouverneur du 11 Juillet 2020 organisé par le ROTARY CLUB. \n Merci de cliquer sur le lien ci-dessous pour télécharger votre ticket.\n\n👉👉 http://galarotary.dreammakerci.com/invite/".$ticket->getReference()."/telechargement  \n\n Infoline +225 00 00 00 00 ";
 
         $data = [
             'phone' => $phone,

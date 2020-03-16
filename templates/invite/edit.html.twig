@@ -60,3 +60,11 @@
         </div>
     </section>
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('dist/css/bootstrap-formhelpers.min.css') }}">
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('dist/js/bootstrap-formhelpers.min.js') }}"></script>
+{% endblock %}
